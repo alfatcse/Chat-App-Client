@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Logo from '../assets/logo.svg';
@@ -81,7 +81,7 @@ const Login = () => {
     })
    const handleSubmit = async(event) => {
     event.preventDefault();
-    console.log('sub');
+    console.log('sub',values);
     if(handleValidation()){
         const {password,username}=values;
         const {data}=await axios.post(loginRoute,{
@@ -106,13 +106,18 @@ const Login = () => {
     draggable:true,
     theme:'dark',
   }
+  useEffect(()=>{
+   if(localStorage.getItem('chat-app-user')){
+    navigate('/')
+   }
+  },[])
   const handleValidation=()=>{
     const {password,username}=values;
-    if(password.length===''){
+    if(password===''){
         toast.error('Password is required',toastOptions);
         return false;
     }
-    else if(username.length===''){
+    else if(username===''){
         toast.error('User required',toastOptions);
         return false;
     }
@@ -130,9 +135,7 @@ const Login = () => {
                 <h1>Snappy</h1>
             </div>
             <input type='text' placeholder="UserName" name="username" onChange={e=>handleChange(e)}></input>
-            
             <input type='password' placeholder="Password" name="password" onChange={e=>handleChange(e)}></input>
-           
             <button type="submit">Log in User</button>
             <br></br>
             <span>Don't have an Account ? <Link to='/register'>Create User</Link></span>
