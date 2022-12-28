@@ -91,6 +91,11 @@ const SetAvatar = () => {
       }
     }
   };
+  useEffect(()=>{
+    if(!localStorage.getItem('chat-app-user')){
+        navigate('/login')
+       }
+  })
   useEffect(() => {
     async function fetchData() {
       const data = [];
