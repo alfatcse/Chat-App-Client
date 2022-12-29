@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Contacts from "../components/Contacts";
+import Welcome from "../components/Welcome";
 import { allUserRoute } from "../utils/APIRoutes";
 const Container = styled.div`
   height: 100vh;
@@ -29,17 +30,20 @@ const Chat = () => {
   const navigate = useNavigate();
   const [contacts, setContacts] = useState([]);
   const [currentUser, setCurrentuser] = useState(undefined);
+  const [currentChat,setCurrentChat]=useState(undefined);
   useEffect(() => {
-    async function fetchData() {
+    console.log('efff');
+    
       if (!localStorage.getItem("chat-app-user")) {
         navigate("/login");
       } else {
-        setCurrentuser(await JSON.parse(localStorage.getItem("chat-app-user")));
+        console.log('be',currentUser);
+        setCurrentuser( JSON.parse(localStorage.getItem("chat-app-user")));
+       
       }
-    }
-    fetchData();
+   
   }, []);
-
+  
   useEffect(() => {
     async function fetchData() {
       if (currentUser) {
@@ -54,11 +58,16 @@ const Chat = () => {
     }
     fetchData();
   }, [currentUser]);
-  console.log(contacts);
+ 
+  const handleChatChange=(chat)=>{
+       setCurrentChat(chat);
+  }
+  console.log('af',currentUser);
   return (
     <Container>
       <div className="container">
-        <Contacts contacts={contacts} currentUser={currentUser}></Contacts>
+        <Contacts contacts={contacts} currentUser={currentUser} changeChat={handleChatChange}></Contacts>
+        <Welcome currentUser={currentUser}/>
       </div>
     </Container>
   );

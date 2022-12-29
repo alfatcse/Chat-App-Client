@@ -4,7 +4,7 @@ import Logo from "../assets/logo.svg";
 const Container = styled.div` display: grid;
 grid-template-rows: 10% 75% 15%;
 overflow: hidden;
-background-color: #080420;
+background-color: #BDB76B;
 .brand {
   display: flex;
   align-items: center;
@@ -59,7 +59,7 @@ background-color: #080420;
   }
 }
 .current-user {
-  background-color: #0d0d30;
+  background-color: #00FFFF;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,18 +84,23 @@ background-color: #080420;
     }
   }
 }`;
-const Contacts = ({ contacts, currentUser }) => {
+const Contacts = ({ contacts, currentUser ,changeChat}) => {
   const [currentUserName, setcurrentUserName] = useState(undefined);
   const [currentUserImage, setcurrentUserImage] = useState(undefined);
   const [currentSelected, setCurrentSelected] = useState(undefined);
+  console.log(currentUser);
   useEffect(() => {
     if (currentUser) {
       setcurrentUserImage(currentUser.avatarImage);
       setcurrentUserName(currentUser.username);
     }
   }, [currentUser]);
-  const changeCurrentChat = (index, contact) => {};
-  console.log("con", contacts, currentUser);
+  const changeCurrentChat = (index, contact) => {
+    setCurrentSelected(index);
+    changeChat(contact);
+    console.log(contact);
+  };
+  
   return (
     <>
       {currentUserImage && currentUserName && (
@@ -112,6 +117,7 @@ const Contacts = ({ contacts, currentUser }) => {
                     index === currentSelected ? "selected" : ""
                   }`}
                   key={index}
+                  onClick={()=>changeCurrentChat(index,contact)}
                 >
                   <div className="avatar">
                     <img
