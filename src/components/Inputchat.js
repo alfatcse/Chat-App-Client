@@ -1,36 +1,8 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import Picker from 'emoji-picker-react';
-import {IoMdSend} from 'react-icons/io';
-import {BsEmojiSmileFill} from 'react-icons/bs';
-const ChatInput = () => {
-    const [showEmojiPicker,setShowEmojiPicker]=useState(false);
-    const [msg,setMsg]=useState('');
-    const handleEmojiPIckerHideShow=()=>{
-        setShowEmojiPicker(!showEmojiPicker);
-    }
-    const handleEmojiClick=(event,emoji)=>{
-           let message=msg;
-           message+=emoji.emoji;
-           setMsg(message);
-    }
-    return (
-        <Container>
-            <div className='button-container'>
-                <div className='emoji'>
-                    <BsEmojiSmileFill onClick={handleEmojiPIckerHideShow}/>
-                    {
-                        showEmojiPicker&&<Picker onEmojiClick={handleEmojiClick}/>
-                    }
-                </div>
-            </div>
-            <form className='input-container'> 
-            <input type='text' placeholder='Type your message' value={msg} onChange={(e)=>setMsg(e.target.value)}/>
-            <button><IoMdSend/></button>
-            </form>
-        </Container>
-    );
-};
+import React, { useState } from "react";
+import { BsEmojiSmileFill } from "react-icons/bs";
+import { IoMdSend } from "react-icons/io";
+import styled from "styled-components";
+import Picker from "emoji-picker-react";
 const Container = styled.div`
   display: grid;
   align-items: center;
@@ -125,4 +97,47 @@ const Container = styled.div`
     }
   }
 `;
-export default ChatInput;
+const Inputchat = ({ handleSendMsg }) => {
+    const [msg, setMsg] = useState("");
+    const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+    const handleEmojiPickerhideShow = () => {
+      setShowEmojiPicker(!showEmojiPicker);
+    };
+  
+    const handleEmojiClick = (event, emojiObject) => {
+      let message = msg;
+      message += emojiObject.emoji;
+      setMsg(message);
+    };
+  
+    const sendChat = (event) => {
+      event.preventDefault();
+      if (msg.length > 0) {
+        handleSendMsg(msg);
+        setMsg("");
+      }
+    };
+    return (
+        <Container>
+          <div className="button-container">
+            <div className="emoji">
+              <BsEmojiSmileFill onClick={handleEmojiPickerhideShow} />
+              {showEmojiPicker && <Picker onEmojiClick={handleEmojiClick} />}
+            </div>
+          </div>
+          <form className="input-container" onSubmit={(event) => sendChat(event)}>
+            <input
+              type="text"
+              placeholder="type your message here"
+              onChange={(e) => setMsg(e.target.value)}
+              value={msg}
+            />
+            <button className="submit">
+              <IoMdSend />
+            </button>
+          </form>
+        </Container>
+      );
+};
+
+export default Inputchat;
