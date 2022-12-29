@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import Contacts from "../components/Contacts";
 import { allUserRoute } from "../utils/APIRoutes";
 const Container = styled.div`
   height: 100vh;
@@ -56,7 +57,9 @@ const Chat = () => {
   console.log(contacts);
   return (
     <Container>
-      <div className="container"></div>
+      <div className="container">
+        <Contacts contacts={contacts} currentUser={currentUser}></Contacts>
+      </div>
     </Container>
   );
 };
