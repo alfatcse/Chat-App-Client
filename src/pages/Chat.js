@@ -72,10 +72,11 @@ const Chat = () => {
           currentUser={currentUser}
           changeChat={handleChatChange}
         ></Contacts>
-        {
-            isLoaded&&currentChat===undefined? <Welcome currentUser={currentUser} />:<ChatContainer></ChatContainer>
-        }
-       
+        {isLoaded && currentChat === undefined ? (
+          <Welcome currentUser={currentUser} />
+        ) : (
+          <ChatContainer currentChat={currentChat}></ChatContainer>
+        )}
       </div>
     </Container>
   );
