@@ -56,6 +56,7 @@ background-color: #BDB76B;
   }
   .selected {
     background-color: #9a86f3;
+    
   }
 }
 .current-user {
@@ -66,7 +67,7 @@ background-color: #BDB76B;
   gap: 2rem;
   .avatar {
     img {
-      height: 4rem;
+      height: 2rem;
       max-inline-size: 100%;
     }
   }
@@ -114,7 +115,7 @@ const Contacts = ({ contacts, currentUser ,changeChat}) => {
               return (
                 <div
                   className={`contact${
-                    index === currentSelected ? "selected" : ""
+                    index === currentSelected ?  " selected" : ""
                   }`}
                   key={index}
                   onClick={()=>changeCurrentChat(index,contact)}

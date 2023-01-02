@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 *{
   margin: 0;
   padding: 0;
@@ -9,6 +12,6 @@ body,button,input{
 }
 body{
   max-height: 100vh;
-  max-width: 100vh;
+ 
   overflow: hidden;
 }

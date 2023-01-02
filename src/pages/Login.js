@@ -6,7 +6,7 @@ import {toast,ToastContainer} from 'react-toastify';
 import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css'
 import { loginRoute } from "../utils/APIRoutes";
-
+import {useForm} from 'react-hook-form';
 const FormContainer = styled.div`
 height:100vh;
 width:250vh;
@@ -75,16 +75,21 @@ form{
 }
 `;
 const Login = () => {
+    const { register, formState: { errors }, handleSubmit } = useForm();
+    const [loginError, setloginError] = useState('');
     const navigate=useNavigate();
     const [values,setValues]=useState({
         username:'',
         password:'',
     })
-   const handleSubmit = async(event) => {
-    event.preventDefault();
-    console.log('sub',values);
+   const handleLogin = async(data) => {
+   
+    console.log('sub',data.username,data.password);
+    const username=data.username;
+    const password=data.password;
     if(handleValidation()){
-        const {password,username}=values;
+       console.log('vali');
+       const {password,username}=values
         const {data}=await axios.post(loginRoute,{
             username,
             password
@@ -127,9 +132,46 @@ const Login = () => {
    const handleChange=(event)=>{
          setValues({...values,[event.target.name]:event.target.value})
    }
+   console.log(values);
   return (
-    <>
-      <FormContainer>
+    
+    <div className='h-[600px] flex justify-center items-center '>
+            <div className='w-96 p-7'>
+                <h1 className='text-3xl text-center font-bold'>login</h1>
+                <form onSubmit={handleSubmit(handleLogin)}>
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label">
+                            <span className="label-text">User Name</span>
+                        </label>
+                        <input type='text' placeholder="UserName" name="username"  className="input input-bordered w-full max-w-xs" onChange={e=>handleChange(e)}></input>
+                    </div>
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label">
+                            <span className="label-text">Password</span>
+                        </label>
+                        <input type='password' placeholder="Password" name="password" className="input input-bordered w-full max-w-xs" onChange={e=>handleChange(e)}></input>
+                        <label className="label">
+                            <span className="label-text"><Link className='text-primary' >Forget Password?</Link> </span>
+                        </label>
+                    </div>
+                    <input className='btn w-full btn-accent' value="Log In" type="submit" />
+                    <div>
+                        {
+                            loginError && <p className='text-red-500'>{loginError}</p>
+                        }
+                    </div>
+                </form>
+                <p>New to ChatApp <Link className='text-primary' to="/register">Create New Account</Link></p>
+                
+            </div>
+        </div>
+     
+    
+  );
+};
+
+export default Login;
+ {/* <FormContainer>
         <form onSubmit={(event) => handleSubmit(event)}>
             <div className="brand">
                 <img src={Logo} alt="Logo"></img>
@@ -142,9 +184,4 @@ const Login = () => {
             <span>Don't have an Account ? <Link to='/register'>Create User</Link></span>
         </form>
       </FormContainer>
-      <ToastContainer/>
-    </>
-  );
-};
-
-export default Login;
+      <ToastContainer/> */}

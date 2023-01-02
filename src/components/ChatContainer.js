@@ -62,7 +62,7 @@ const ChatContainer = ({ currentChat, currentUser,socket }) => {
           <div className="chat-header">
             <div className="user-details">
               <div className="avatar">
-                <img
+                <img 
                   src={`data:image/svg+xml;base64,${currentChat.avatarimage}`}
                   alt="avatar"
                 />
