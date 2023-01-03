@@ -1,4 +1,4 @@
-export const host='http://localhost:5009';
+export const host='http://18.197.51.51:4000';
 export const registerRoute=`${host}/register`;
 export const loginRoute=`${host}/login`;
 export const SetAvatarRoute=`${host}/setAvatar`;

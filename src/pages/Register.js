@@ -176,7 +176,7 @@ const Register = () => {
             <input className='btn w-full btn-accent' value="Register" type="submit" />
             
         </form>
-        <p>New to ChatApp <Link className='text-primary' to="/login">Create New Account</Link></p>
+        <p>Already have ChatApp Account<Link className='text-primary' to="/login"> Log in</Link></p>
         
     </div>
 </div>
