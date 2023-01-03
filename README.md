@@ -1,5 +1,5 @@
 ### `Key Feature of the project`
-1.Register new user
+`1.Register new user`
 2.Log in new user
 3.Chat with the registered users
 ### `Live Link`
