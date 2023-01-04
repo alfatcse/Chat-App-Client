@@ -11,7 +11,12 @@
 <p align="center">
   <img src="https://i.ibb.co/HgWrZm6/Screenshot-from-2023-01-04-11-08-28.png" width="350" alt="accessibility text">
 </p>
+
 ### `Live Link`
 Open [http://docors-portal.web.app](https://doctors-portal-be73e.web.app) to view it in your browser.
+### `To experience the Admin role Please use the following credential`
+`admin user email: admin@a.com`
+
+`admin password: admin1234#`
 
 
