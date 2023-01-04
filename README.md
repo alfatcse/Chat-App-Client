@@ -12,6 +12,6 @@
   <img src="https://i.ibb.co/HgWrZm6/Screenshot-from-2023-01-04-11-08-28.png" width="350" alt="accessibility text">
 </p>
 ### `Live Link`
-Open  [http://ChatApp:3000](http://18.197.51.51:3000/) to view it in your browser.
+Open [http://docors-portal.web.app](https://doctors-portal-be73e.web.app) to view it in your browser.
 
 
