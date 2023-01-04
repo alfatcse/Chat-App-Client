@@ -13,10 +13,7 @@
 </p>
 
 ### `Live Link`
-Open [http://docors-portal.web.app](http://18.197.51.51:3000) to view it in your browser.
-### `To experience the Admin role Please use the following credential`
-`admin user email: admin@a.com`
+Open [http://Chat-App.web.app](http://18.197.51.51:3000) to view it in your browser.
 
-`admin password: admin1234#`
 
 
