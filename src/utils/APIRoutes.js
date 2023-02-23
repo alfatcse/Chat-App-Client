@@ -1,9 +1,9 @@
-export const host='http://18.197.51.51:4000';
-export const registerRoute=`${host}/register`;
-export const loginRoute=`${host}/login`;
-export const SetAvatarRoute=`${host}/setAvatar`;
-export const allUserRoute=`${host}/allusers`;
-export const sendMessageRoute=`${host}/addmsg`;
-export const getAllMessagesRoute=`${host}/getallmessages`;
+export const host='http://localhost:4000';
+export const registerRoute=`${host}/api/v1/user/register`;
+export const loginRoute=`${host}/api/v1/user/login`;
+export const SetAvatarRoute=`${host}/api/v1/user/setAvatar`;
+export const allUserRoute=`${host}/api/v1/user/allusers`;
+export const sendMessageRoute=`${host}/api/v1/message/addmsg`;
+export const getAllMessagesRoute=`${host}/api/v1/message/getallmessages`;
 
 

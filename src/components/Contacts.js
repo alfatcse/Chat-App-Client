@@ -122,7 +122,7 @@ const Contacts = ({ contacts, currentUser ,changeChat}) => {
                 >
                   <div className="avatar">
                     <img
-                      src={`data:image/svg+xml;base64,${contact.avatarimage}`}
+                      src={`data:image/svg+xml;base64,${contact.avatarImage}`}
                       alt="avatar"
                     />
                   </div>
