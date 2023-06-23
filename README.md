@@ -1,19 +1,21 @@
 
-### `Live Link`
-Open [http://Chat-App.web.app](http://18.197.51.51:3000) to view it in your browser.
-### `Key Feature of the project`
-`1.Register new user`\
-<p align="center">
-  <img src="https://i.ibb.co/KNdZhj1/Screenshot-from-2023-01-04-11-15-52.png" width="350" alt="accessibility text">
-</p>
-`2.Log in registered user with valid credentials`\
-<p align="center">
-  <img src="https://i.ibb.co/17V7tpJ/Screenshot-from-2023-01-04-11-14-27.png" width="350" alt="accessibility text">
-</p>
-`3.Chat with the registered users`
-<p align="center">
-  <img src="https://i.ibb.co/HgWrZm6/Screenshot-from-2023-01-04-11-08-28.png" width="350" alt="accessibility text">
-</p>
+### As a developer, my portfolio is a reflection of my skills, experience, resume and passion for creating innovative and impactful solutions. It showcases my journey in the world of software development and provides a glimpse into the projects I have worked on.
+
+Within my portfolio, you will find a collection of diverse projects that demonstrate my expertise in various programming languages, frameworks, and tools. From web development to mobile applications, each project represents a unique challenge I have encountered and successfully tackled.
+
+Through detailed project descriptions, I aim to convey the problem-solving approach I adopt in my work. I highlight the technical intricacies I encountered, the strategies I employed, and the tangible outcomes achieved. By sharing these insights, I strive to provide potential clients and employers with a deeper understanding of my abilities and the value I can bring to their projects.
+
+In addition to showcasing my technical skills, my portfolio also emphasizes my commitment to collaboration and continuous learning. I provide links to my GitHub repositories, where I actively contribute to open-source projects and engage in knowledge sharing within the developer community. This collaborative mindset not only allows me to expand my skills but also demonstrates my dedication to staying at the forefront of industry trends.
+
+Overall, my developer portfolio serves as a comprehensive representation of my capabilities and aspirations. It is a testament to my dedication to crafting high-quality solutions, my enthusiasm for continuous growth, and my unwavering commitment to delivering value to those I collaborate with. 
+
+---
+
+# Demo :movie_camera:
+
+![chattAppp (1)](https://github.com/alfatcse/Chat-App-Client/assets/34067640/f598ebc9-d0a8-40ad-a2d3-27d2f9af0722)
+
+## View live demo: [www.Chat-App.web.app](http://18.197.51.51:3000)
 
 
 
