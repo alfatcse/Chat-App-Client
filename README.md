@@ -7,7 +7,7 @@
 
 **Emoji Sharing:** ChatApp enhances communication by offering a wide range of emojis for users to express their emotions effectively. Users can easily select and share emojis within their messages, adding a personalized touch to their conversations.
 
-**Responsive Design:** ChatApp incorporates React and React Bootstrap to provide a responsive and visually appealing user interface. The application adapts seamlessly to different screen sizes and devices, ensuring a consistent user experience across platforms.
+**Responsive Design:** ChatApp incorporates React and Tailwind CSS framework to provide a responsive and visually appealing user interface. The application adapts seamlessly to different screen sizes and devices, ensuring a consistent user experience across platforms.
 
 **Personalization Options:** ChatApp offers customization features, allowing users to personalize their chat experience. Users can customize their profiles, choose different themes or color schemes, and personalize their chat settings to suit their preferences.
 
