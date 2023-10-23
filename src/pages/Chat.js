@@ -40,7 +40,6 @@ const Chat = () => {
       if (!localStorage.getItem("chat-app-user")) {
         navigate("/login");
       } else {
-        console.log("be", currentUser);
         setCurrentuser(JSON.parse(localStorage.getItem("chat-app-user")));
         setIsLoaded(true);
       }
@@ -55,10 +54,10 @@ const Chat = () => {
   }, [currentUser]);
   useEffect(() => {
     async function fetchData() {
-      if (currentUser) { 
+      if (currentUser) {
         if (currentUser.isAvatarImageSet) {
           const data = await axios.get(`${allUserRoute}/${currentUser._id}`);
-          console.log('user data',data.data.data);
+          console.log("user data", data.data.data);
           setContacts(data.data.data);
         } else {
           navigate("/setAvatar");
@@ -71,7 +70,7 @@ const Chat = () => {
   const handleChatChange = (chat) => {
     setCurrentChat(chat);
   };
-  console.log("af", currentUser);
+
   return (
     <Container>
       <div className="container">
@@ -80,7 +79,7 @@ const Chat = () => {
           currentUser={currentUser}
           changeChat={handleChatChange}
         ></Contacts>
-        {isLoaded && currentChat === undefined ? ( 
+        {isLoaded && currentChat === undefined ? (
           <Welcome currentUser={currentUser} />
         ) : (
           <ChatContainer

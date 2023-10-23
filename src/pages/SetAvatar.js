@@ -39,9 +39,9 @@ const Container = styled.div`
         height: 6rem;
         transition: 0.5s ease-in-out;
       }
-    }
-    .selected {
-      border: 0.4rem solid #4e0eff;
+      selected {
+        border: 0.4rem solid #4e0eff;
+      }
     }
   }
   .submit-btn {
@@ -60,10 +60,10 @@ const Container = styled.div`
   }
 `;
 const SetAvatar = () => {
-  const api = `https://api.multiavatar.com/4645643`;
+  const api = process.env.REACT_APP_AVATAR;
   const [avatars, setAvatars] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedAvatar, setSelectedAvatar] = useState(undefined);
+  const [selectedAvatar, setSelectedAvatar] = useState(null);
   const toastOptions = {
     position: "bottom-right",
     autoClose: 5000,
@@ -72,46 +72,56 @@ const SetAvatar = () => {
     theme: "dark",
   };
   const setProfilePicture = async () => {
-    if (selectedAvatar === undefined) {
+    if (selectedAvatar === null) {
       toast.error("Please select an avatar", toastOptions);
     } else {
       const user = await JSON.parse(localStorage.getItem("chat-app-user"));
-      const { data } = await axios.post(`${SetAvatarRoute}/${user._id}`, {
-        image: avatars[selectedAvatar],
+      console.log(avatars[selectedAvatar]);
+      const img = avatars[selectedAvatar];
+      const data = await axios.post(`${SetAvatarRoute}/${user?._id}`, {
+        avatarImage: img,
       });
-      console.log(data);
-      if (data.isSet) {
+      console.log("Post dat", data);
+      if (data?.data?.isSet === true) {
         user.isAvatarImageSet = true;
-        user.avatarImage = data.image;
+        user.avatarImage = data?.data?.image;
         localStorage.setItem("chat-app-user", JSON.stringify(user));
         navigate("/");
-      }
-      else{
-        toast.error("Error select an avatar again" , toastOptions);
+      } else {
+        toast.error("Error select an avatar again", toastOptions);
       }
     }
   };
-  useEffect(()=>{
-    if(!localStorage.getItem('chat-app-user')){
-        navigate('/login')
-       }
-  })
+  useEffect(() => {
+    if (!localStorage.getItem("chat-app-user")) {
+      navigate("/login");
+    }
+  });
   useEffect(() => {
     async function fetchData() {
       const data = [];
       for (let i = 0; i < 4; i++) {
-        const image = await axios.get(
-          `${api}/${Math.round(Math.random() * 1000)}`
-        );
-        const buffer = new Buffer(image.data);
-        data.push(buffer.toString("base64"));
+        try {
+          const image = await axios.get(
+            `${api}/${Math.round(Math.random() * 1000)}`
+          );
+          const buffer = new Buffer(image.data);
+          data.push(buffer.toString("base64"));
+        } catch (error) {
+          console.error("Error fetching image:", error);
+        }
+        // Introduce a delay between requests (e.g., 1 second)
+        await new Promise((resolve) => setTimeout(resolve, 4000));
       }
       setAvatars(data);
       setIsLoading(false);
     }
     fetchData();
-  }, []);
+  }, []); // Empty dependency array to run once on component mount
   const navigate = useNavigate();
+  const ava = (index) => {
+    setSelectedAvatar(index);
+  };
   return (
     <>
       {isLoading ? (
@@ -134,7 +144,7 @@ const SetAvatar = () => {
                   <img
                     src={`data:image/svg+xml;base64,${avatar}`}
                     alt="avatar"
-                    onClick={() => setSelectedAvatar(index)}
+                    onClick={() => ava(index)}
                     key={index}
                   ></img>
                 </div>
@@ -146,7 +156,6 @@ const SetAvatar = () => {
           </button>
         </Container>
       )}
-
       <ToastContainer />
     </>
   );
