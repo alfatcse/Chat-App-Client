@@ -39,9 +39,9 @@ const Container = styled.div`
         height: 6rem;
         transition: 0.5s ease-in-out;
       }
-      selected {
-        border: 0.4rem solid #4e0eff;
-      }
+    }
+    .selected {
+      border: 0.4rem solid #4e0eff;
     }
   }
   .submit-btn {
@@ -138,7 +138,7 @@ const SetAvatar = () => {
               return (
                 <div
                   className={`avatar${
-                    selectedAvatar === index ? "selected" : ""
+                    selectedAvatar === index ? " selected" : ""
                   }`}
                 >
                   <img
