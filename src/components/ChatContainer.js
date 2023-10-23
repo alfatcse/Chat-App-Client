@@ -4,14 +4,9 @@ import Inputchat from "./Inputchat";
 import axios from "axios";
 import Logout from "./Logout";
 import Messages from "./Messages";
-import {
-  sendMessageRoute,
-  getAllMessagesRoute,
-  
-} from "../utils/APIRoutes";
-import {v4 as uuidv4} from 'uuid';
-const ChatContainer = ({ currentChat, currentUser,socket }) => {
-  console.log('ssss',socket);
+import { sendMessageRoute, getAllMessagesRoute } from "../utils/APIRoutes";
+import { v4 as uuidv4 } from "uuid";
+const ChatContainer = ({ currentChat, currentUser, socket }) => {
   const [message, setMessage] = useState([]);
   const scrollRef = useRef();
   const [arivalMessage, setArivalMessage] = useState(null);
@@ -32,7 +27,6 @@ const ChatContainer = ({ currentChat, currentUser,socket }) => {
   };
   useEffect(() => {
     if (socket.current) {
-      console.log('msg-ree');
       socket.current.on("msg-recieve", (msg) => {
         setArivalMessage({ fromSelf: false, message: msg });
       });
@@ -51,13 +45,11 @@ const ChatContainer = ({ currentChat, currentUser,socket }) => {
           from: currentUser._id,
           to: currentChat._id,
         });
-        console.log('response',response);
         setMessage(response.data.data);
       }
     }
     fetchData();
   }, [currentChat]);
-  console.log("mes", message);
   return (
     <>
       {currentChat && (
@@ -65,7 +57,7 @@ const ChatContainer = ({ currentChat, currentUser,socket }) => {
           <div className="chat-header">
             <div className="user-details">
               <div className="avatar">
-                <img 
+                <img
                   src={`data:image/svg+xml;base64,${currentChat.avatarImage}`}
                   alt="avatar"
                 />

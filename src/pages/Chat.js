@@ -35,7 +35,6 @@ const Chat = () => {
   const [currentChat, setCurrentChat] = useState(undefined);
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    console.log("efff");
     async function fetchData() {
       if (!localStorage.getItem("chat-app-user")) {
         navigate("/login");
@@ -57,7 +56,6 @@ const Chat = () => {
       if (currentUser) {
         if (currentUser.isAvatarImageSet) {
           const data = await axios.get(`${allUserRoute}/${currentUser._id}`);
-          console.log("user data", data.data.data);
           setContacts(data.data.data);
         } else {
           navigate("/setAvatar");

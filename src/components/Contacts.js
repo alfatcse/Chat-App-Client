@@ -92,7 +92,6 @@ const Contacts = ({ contacts, currentUser, changeChat }) => {
   const [currentUserName, setcurrentUserName] = useState(undefined);
   const [currentUserImage, setcurrentUserImage] = useState(undefined);
   const [currentSelected, setCurrentSelected] = useState(undefined);
-  console.log("current", currentUser, "constacts", contacts);
   useEffect(() => {
     if (currentUser) {
       setcurrentUserImage(currentUser.avatarImage);
@@ -102,7 +101,6 @@ const Contacts = ({ contacts, currentUser, changeChat }) => {
   const changeCurrentChat = (index, contact) => {
     setCurrentSelected(index);
     changeChat(contact);
-    console.log(contact);
   };
 
   return (

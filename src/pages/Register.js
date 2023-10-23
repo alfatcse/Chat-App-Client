@@ -93,7 +93,6 @@ const Register = () => {
     }
   }, []);
   const handleRegister = async (event) => {
-    console.log("sub", event.username, event.password);
     if (handleValidation()) {
       const { password, confirmPassword, username, email } = values;
       const { data } = await axios.post(registerRoute, {
@@ -101,7 +100,7 @@ const Register = () => {
         email,
         password,
       });
-      console.log("register", data);
+
       if (data?.status !== "Success") {
         toast.error(data.msg, toastOptions);
       }
