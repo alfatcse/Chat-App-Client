@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import Logo from "../assets/logo.svg";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { loginRoute } from "../utils/APIRoutes";
@@ -185,19 +184,3 @@ const Login = () => {
 };
 
 export default Login;
-{
-  /* <FormContainer>
-        <form onSubmit={(event) => handleSubmit(event)}>
-            <div className="brand">
-                <img src={Logo} alt="Logo"></img>
-                <h1>Snappy</h1>
-            </div>
-            <input type='text' placeholder="UserName" name="username" onChange={e=>handleChange(e)}></input>
-            <input type='password' placeholder="Password" name="password" onChange={e=>handleChange(e)}></input>
-            <button type="submit">Log in User</button>
-            <br></br>
-            <span>Don't have an Account ? <Link to='/register'>Create User</Link></span>
-        </form>
-      </FormContainer>
-      <ToastContainer/> */
-}
