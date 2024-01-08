@@ -1,5 +1,5 @@
 FROM node:18-alpine AS build
-WORKDIR /usr/src/app
+WORKDIR /usr/src
 #install app dependicies
 COPY package.json package-lock.json ./
 RUN npm install
