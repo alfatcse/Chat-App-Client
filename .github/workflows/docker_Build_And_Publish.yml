@@ -1,16 +1,19 @@
 name: Publish Docker Image
-
 on:
   push:
-    branches: ['main']
-
+    branches: ["main"]
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+
+      - name: Create .env File
+        run: echo "${{ secrets.ENV }}" > .env
+
+      - name: Display .env
+        run: cat .env
 
       - name: Login to docker hub
         run: echo "${{secrets.DOCKERHUB_TOKEN}}" | docker login -u "${{secrets.DOCKERHUB_USERNAME}}" --password-stdin
