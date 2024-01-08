@@ -1,0 +1,8 @@
+version: '1'
+services:
+  node-app:
+    image: alfatjahanbsmrstu102/chat-app-client
+    container_name: chat-app-client
+    network_mode: 'host'
+    ports: 
+        - 3000:3000 
