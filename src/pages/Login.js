@@ -175,7 +175,7 @@ const Login = () => {
         <p>
           New to ChatApp{" "}
           <Link className="text-primary" to="/register">
-            Create New Account
+            Create New Account Here
           </Link>
         </p>
       </div>
