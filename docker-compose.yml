@@ -1,7 +1,7 @@
 version: '1'
 services:
   node-app:
-    image: alfatjahanbsmrstu102/chat-app-client
+    image: alfatjahanbsmrstu102/chat-app-client:latest
     container_name: chat-app-client
     network_mode: 'host'
     ports: 
