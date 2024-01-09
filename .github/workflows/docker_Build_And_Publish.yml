@@ -8,18 +8,13 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-
       - name: Create .env File
         run: echo "${{ secrets.ENV }}" > .env
-
       - name: Display .env
         run: cat .env
-
       - name: Login to docker hub
         run: echo "${{secrets.DOCKERHUB_TOKEN}}" | docker login -u "${{secrets.DOCKERHUB_USERNAME}}" --password-stdin
-
       - name: Build Docker Image
         run: docker build . --file Dockerfile --tag ${{secrets.DOCKERHUB_USERNAME}}/chat-app-client:latest
-
       - name: Push Docker Image
         run: docker push ${{secrets.DOCKERHUB_USERNAME}}/chat-app-client:latest
