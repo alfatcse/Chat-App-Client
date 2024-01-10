@@ -6,7 +6,7 @@ const Welcome = ({ currentUser }) => {
     <Container>
       <img src={Robot} alt="Robot" />
       <h1>
-        Welcome ,<span>{currentUser.username}!</span>
+        Welcome ,<span>{currentUser.username} !!</span>
       </h1>
       <h3>Please Select a user to Start Chat</h3>
     </Container>
