@@ -159,7 +159,7 @@ const Login = () => {
             ></input>
             <label className="label">
               <span className="label-text">
-                <Link className="text-primary">Forget Password?</Link>{" "}
+                <Link className="text-primary">Forget Password ?</Link>{" "}
               </span>
             </label>
           </div>
@@ -175,7 +175,7 @@ const Login = () => {
         <p>
           New to ChatApp{" "}
           <Link className="text-primary" to="/register">
-            Create New Account Here
+            Create New Account Here By clicking
           </Link>
         </p>
       </div>
