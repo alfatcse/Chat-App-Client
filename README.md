@@ -1,4 +1,4 @@
-## View live demo: [www.chat-app.web.app](http://18.197.51.51:3000)
+## View live demo: [www.chat-app.web.app](http://3.124.7.193/)
 ### ChatApp is an innovative chat application that leverages modern technologies such as Socket.io, React, React Bootstrap, HTML, CSS, and more to deliver a dynamic and interactive messaging experience. With its robust features and seamless integration, ChatApp allows users to connect, communicate, and express themselves in real-time with other users from around the world.
 # Key Features🔑
  **User Authentication:** ChatApp provides a secure and reliable user authentication system, allowing users to create an account, log in, and safeguard their personal information. This ensures that only authorized users can access the chat application.
