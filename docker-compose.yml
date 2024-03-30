@@ -5,5 +5,5 @@ services:
     container_name: chat-app-client
     network_mode: 'host'
     ports: 
-        - 3001:3001 
+        - 3000:3000
   
