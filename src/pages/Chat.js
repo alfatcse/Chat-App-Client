@@ -92,4 +92,4 @@ const Chat = () => {
 };
 
 export default Chat;
-//server.happynation.global
+//gamedemoserver.happynation.global
